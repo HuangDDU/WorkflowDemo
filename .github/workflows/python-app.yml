@@ -37,7 +37,7 @@ jobs:
     # 测试前项目路径添加到包路径下
     - name: Add project root to PYTHONPATH
       run: |
-        echo "export PYTHONPATH=${GITHUB_WORKSPACE}:${PYTHONPATH}" >> $GITHUB_ENV
+        PYTHONPATH="${GITHUB_WORKSPACE}:${PYTHONPATH}"
     - name: Test with pytest
       run: |
         pytest -m pytest
