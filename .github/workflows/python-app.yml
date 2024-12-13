@@ -40,4 +40,4 @@ jobs:
        PYTHONPATH="${GITHUB_WORKSPACE}:${PYTHONPATH}"
     - name: Test with pytest
       run: |
-        pytest -m pytest
+        pytest
