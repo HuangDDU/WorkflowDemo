@@ -1,4 +1,4 @@
-from workflowdemo.add import add
+from src.add import add
 
 
 def test_add():
