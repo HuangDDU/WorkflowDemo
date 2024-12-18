@@ -38,6 +38,7 @@ jobs:
       with:
         python-version: "3.10"
 
+    # 检查Docker, R, Python的版本
     - name: check Docker R Python version
       run: |
         docker --version
@@ -51,9 +52,15 @@ jobs:
         pip install flake8 pytest
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
     
-    - name: Install R dependencies
-      run: |
-        Rscript -e 'install.packages(c("utils", "stats", "dynwrap", "dynutils"), repos="https://cloud.r-project.org")'
+    - name: Install R dependenciesQ
+      uses: r-lib/actions/setup-r-dependencies@v2
+      with:
+        packages: utils, stats
+        needs: check
+    
+    # - name: Install R dependencies
+    #   run: |
+    #     Rscript -e 'install.packages(c("utils", "stats", "dynwrap", "dynutils"), repos="https://cloud.r-project.org")'
 
     - name: Lint with flake8
       run: |
