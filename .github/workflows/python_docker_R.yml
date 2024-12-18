@@ -52,11 +52,16 @@ jobs:
         pip install flake8 pytest
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
     
-    - name: Install R dependenciesQ
-      uses: r-lib/actions/setup-r-dependencies@v2
-      with:
-        packages: utils, stats
-        needs: check
+    - name: Check R installation
+      run: |
+        Rscript -e 'if (!requireNamespace("utils", quietly=TRUE)) stop("Package 'utils' not found")'
+        Rscript -e 'if (!requireNamespace("stats", quietly=TRUE)) stop("Package 'stats' not found")'
+    
+    # - name: Install R dependenciesQ
+    #   uses: r-lib/actions/setup-r-dependencies@v2
+    #   with:
+    #     packages: utils, stats
+    #     needs: check
     
     # - name: Install R dependencies
     #   run: |
