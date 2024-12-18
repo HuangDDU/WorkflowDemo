@@ -28,7 +28,7 @@ jobs:
 
     - name: Set up R
       run: |
-        sudo apt-get install -y r-base
+        sudo apt-get install -y r-base=4.1.2
         # Install R packages if needed
         # Rscript -e "install.packages('dynwrap')"
         # Rscript -e "install.packages('dynutils')"
