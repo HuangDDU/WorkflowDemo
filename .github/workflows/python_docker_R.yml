@@ -20,6 +20,7 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
+    # 需要依赖docker环境, R 4.1.2, Python 3.10
     - name: Set up Docker
       run: |
         # workflow环境自带docker
