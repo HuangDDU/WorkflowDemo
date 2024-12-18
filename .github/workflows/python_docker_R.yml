@@ -28,10 +28,10 @@ jobs:
 
     - name: Set up R
       run: |
-        sudo apt-get install -y r-base=4.1.2
+        # sudo apt-get install -y r-base=4.1.2
         # Install R packages if needed
-        # Rscript -e "install.packages('dynwrap')"
-        # Rscript -e "install.packages('dynutils')"
+        Rscript -e "install.packages('dynwrap')"
+        Rscript -e "install.packages('dynutils')"
 
     - name: Set up Python 3.10
       uses: actions/setup-python@v3
