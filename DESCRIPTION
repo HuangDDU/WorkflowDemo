@@ -1,2 +1,10 @@
+Package: CellFateExplorer
+Type: Package
+Title: CellFateExplorer
+Version: 0.1.0
+Author: HuangDDU
+Maintainer: HuangDDU <hzy554598474@163.com>
+Description: HuangDDU
 Imports:
-    dynwrap
+    dynwrap,
+    dynutils
