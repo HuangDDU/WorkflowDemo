@@ -32,12 +32,12 @@ jobs:
       uses: r-lib/actions/setup-r@v2
       with:
         r-version: "4.4.2"
-        extra-repositories: dynwrap, dynutils
+        extra-repositories: any::dynwrap, any::dynutils
 
-    # - name: Install R dependencies
-    #   uses: r-lib/actions/setup-r-dependencies@v2
-    #   with:
-    #     extra-repositories: dynwrap, dynutils
+    - name: Install R dependencies
+      uses: r-lib/actions/setup-r-dependencies@v2
+      with:
+        extra-repositories: any::dynwrap, any::dynutils
 
     - name: Set up Python 3.10
       uses: actions/setup-python@v3
