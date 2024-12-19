@@ -20,14 +20,14 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
-    # 需要依赖docker环境, R 4.1.2, Python 3.10
+    # 需要依赖docker环境, R, Python 3.10
     # - name: Set up Docker
     #   run: |
     #     # workflow环境自带docker
     #     # docker pull dynverse/ti_paga:v0.9.9.05
     #     docker images
     
-    # 安装的R总是有点问题
+    # 安装的R总是有点问题, 用默认R4.4.2吧
     # - name: Set up R 4.1.2
     #   uses: r-lib/actions/setup-r@v2
     #   with:
@@ -46,22 +46,15 @@ jobs:
         R --version
         python --version
 
-        
     - name: Install Python dependencies
       run: |
         python -m pip install --upgrade pip
         pip install flake8 pytest
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
     
-    - name: Check R installation
+    - name: Install R dependencies
       run: |
-        Rscript -e 'if (!requireNamespace("utils", quietly=TRUE)) stop("Package 'utils' not found")'
-        Rscript -e 'if (!requireNamespace("stats", quietly=TRUE)) stop("Package 'stats' not found")'
-    
-    
-    # - name: Install R dependencies
-    #   run: |
-    #     Rscript -e 'install.packages(c("utils", "stats", "dynwrap", "dynutils"), repos="https://cloud.r-project.org")'
+        Rscript -e 'install.packages(c("dynwrap", "dynutils"), repos="https://cloud.r-project.org")'
 
     - name: Lint with flake8
       run: |
