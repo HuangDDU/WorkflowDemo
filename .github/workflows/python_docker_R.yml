@@ -15,7 +15,7 @@ permissions:
 jobs:
   build:
 
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
 
     steps:
     - uses: actions/checkout@v4
@@ -26,7 +26,8 @@ jobs:
     #     # workflow环境自带docker
     #     # docker pull dynverse/ti_paga:v0.9.9.05
     #     docker images
-
+    
+    # 安装的R总是有点问题
     # - name: Set up R 4.1.2
     #   uses: r-lib/actions/setup-r@v2
     #   with:
