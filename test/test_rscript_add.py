@@ -20,7 +20,7 @@ def convert_double(obj):
         return [float(x) for x in obj]
 
 
-@pytest.mark.skipif(True)
+@pytest.mark.skipif(True, reason="Skip R")
 def test_rscript_add():
     # 测试rpy2, 调用R脚本
     r_script = """
