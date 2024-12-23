@@ -37,7 +37,6 @@ plugins:
       handlers:
         python:
           import: src
-          # 配置解析代码注释的路径
           paths: [pykit_tools]
           options:
             # heading_level: 3 # 使用了三级菜单，在docs/Reference.md文档中会有体现

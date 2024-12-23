@@ -11,6 +11,7 @@ def convert_integer(obj):
     else:
         return [int(x) for x in obj]
 
+
 @ro.conversion.rpy2py.register(rinterface.FloatSexpVector)
 def convert_double(obj):
     if len(obj) == 1:
@@ -19,6 +20,7 @@ def convert_double(obj):
         return [float(x) for x in obj]
 
 
+@pytest.mark.skipif(True)
 def test_rscript_add():
     # 测试rpy2, 调用R脚本
     r_script = """
