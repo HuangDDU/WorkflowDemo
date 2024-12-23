@@ -1,0 +1,48 @@
+site_name: WorflowDemo
+
+nav:
+  - Home: index.md
+  - API: api.md
+
+theme:
+  name: material
+  language: en
+  features:
+    - content.action.edit
+    - content.code.annotate
+    - content.code.copy
+    - content.tooltips
+    - search.highlight
+    - search.share
+    - search.suggest
+    - toc.follow
+    - navigation.top
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.prune
+    - navigation.footer
+    - navigation.tracking
+    - navigation.instant
+    - navigation.instant.progress
+    - navigation.indexes
+    - navigation.sections # navigation.expand or navigation.sections
+    - content.tabs.link # all code tabs change simultaneously
+
+
+
+plugins:
+  - search
+  - mkdocstrings:
+      default_handler: python
+      handlers:
+        python:
+          import: src
+          # 配置解析代码注释的路径
+          paths: [pykit_tools]
+          options:
+            # heading_level: 3 # 使用了三级菜单，在docs/Reference.md文档中会有体现
+            show_root_heading: true
+            show_symbol_type_heading: true
+            show_source: false
+          selection:
+            docstring_style: google

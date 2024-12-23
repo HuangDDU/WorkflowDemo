@@ -32,8 +32,8 @@ jobs:
       uses: r-lib/actions/setup-r@v2
       with:
         r-version: "4.4.2"
-        extra-repositories: any::dynwrap, any::dynutils
-
+    
+    # 解析DESCRIPTION文件, 下载R包， 这步构建的时间很长
     - name: Install R dependencies
       uses: r-lib/actions/setup-r-dependencies@v2
 
